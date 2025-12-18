@@ -16,7 +16,7 @@ class ESP32Client:
         self.mqtt_port = 1883
         self.device_id = device_id
         
-        # 主题配置
+        # MQTT服务器要订阅的主题
         self.input_topic = b"esp32/input"
         self.output_topic = b"esp32/output"
         
@@ -24,7 +24,7 @@ class ESP32Client:
         self.connected = False
         self.rtc = RTC()
         
-        # 设置NTP服务器为您的服务器IP
+        # NTP服务器配置
         ntptime.host = "10.65.132.129"
         
     def connect_wifi(self):
@@ -222,4 +222,5 @@ class ESP32Client:
 # 使用示例
 if __name__ == "__main__":
     client = ESP32Client("ESP32_001")
+
     client.start()
